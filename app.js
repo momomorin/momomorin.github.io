@@ -11,7 +11,7 @@ $(function () {
     player = new YT.Player('player', {
       width: w,
       height: h,
-      videoId: 'AYcQIdTi55I',
+      videoId: 'c7_kqMFDE8c',
     });
   }
 });
