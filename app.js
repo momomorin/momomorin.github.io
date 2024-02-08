@@ -12,6 +12,8 @@ $(function () {
       width: w,
       height: h,
       videoId: 'c7_kqMFDE8c',
+      playerVars; {
+        autoplay:1,
     });
   }
 });
