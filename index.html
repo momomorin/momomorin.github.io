@@ -1,13 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>youtube player</title>
-  </head>
-  <body>
-    <div id="player"></div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+body {
+  font-family: sans-serif;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+a {
+  text-decoration: none;
+}
+.iframe-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+.iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+</head>
+<body>
+<center>
+<div class="iframe-wrapper">
+<iframe width="800" height="640" 
+src="https://www.youtube.com/embed/c7_kqMFDE8c?si=AApqT-SmxePQY9ON&amp;controls=0&mute=1&autoplay=1" 
+title="YouTube video player" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; 
+encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+</div>
+</center>
+</body>
 </html>
