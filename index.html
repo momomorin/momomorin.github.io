@@ -1,13 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>youtube player</title>
-  </head>
-  <body>
-    <div id="player"></div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>備忘録サイト</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-color: #000;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-background iframe {
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* iframe内のクリックイベントを無効化 */
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* 背景に半透明の黒を重ねて文字の視認性を確保 */
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-900">
+
+    <!-- Video Background -->
+    <div class="video-background">
+        <!-- YouTube埋め込み動画（自動再生、ミュート、コントロール非表示） -->
+        <iframe
+            src="https://www.youtube.com/embed/S8_bxqESsyM?autoplay=1&mute=1&controls=0&loop=1&playlist=S8_bxqESsyM&modestbranding=1&rel=0&showinfo=0"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+        </iframe>
+        <div class="overlay"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content flex flex-col items-center justify-center min-h-screen">
+        <div class="max-w-4xl w-full text-center p-8 md:p-12 bg-gray-800/80 rounded-3xl shadow-2xl backdrop-blur-sm transform transition duration-500 hover:scale-105">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
+                動画制作の備忘録
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-300 mb-8 font-light tracking-wide">
+                企画からアップロードまで、あなたのクリエイティブをもめんたむぶーすと
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+                <!-- Card 1 (企画・構成) -->
+                <a href="planning.html" class="block">
+                    <div class="bg-gray-700/70 p-6 rounded-2xl border border-gray-600 transition duration-300 ease-in-out hover:bg-gray-600/80">
+                        <h3 class="text-xl font-bold text-white mb-2">企画・構成</h3>
+                        <p class="text-gray-400 text-sm">動画のコンセプトやストーリーボード作成のヒントをまとめました。</p>
+                    </div>
+                </a>
+                <!-- Card 2 (撮影・編集) -->
+                <div class="bg-gray-700/70 p-6 rounded-2xl border border-gray-600 transition duration-300 ease-in-out hover:bg-gray-600/80">
+                    <h3 class="text-xl font-bold text-white mb-2">撮影・編集</h3>
+                    <p class="text-gray-400 text-sm">機材の選び方や編集ソフトのテクニックを解説します。</p>
+                </div>
+                <!-- Card 3 (アップロード) -->
+                <div class="bg-gray-700/70 p-6 rounded-2xl border border-gray-600 transition duration-300 ease-in-out hover:bg-gray-600/80">
+                    <h3 class="text-xl font-bold text-white mb-2">アップロード</h3>
+                    <p class="text-gray-400 text-sm">タイトル、タグ、サムネイルなど、YouTubeで動画を伸ばすコツ。</p>
+                </div>
+            </div>
+            
+            <a href="#" class="inline-block mt-12 px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold rounded-full shadow-lg hover:from-blue-600 hover:to-indigo-700 transition duration-300 transform hover:scale-110">
+                備忘録を見る
+            </a>
+        </div>
+    </div>
+
+</body>
 </html>
